@@ -38,42 +38,42 @@
 
 namespace util{
 
-	//! 画像からはみ出る矩形の整形
-	cv::Rect TruncateRect(const cv::Rect& obj_rect, const cv::Size& img_size);
+    //! 画像からはみ出る矩形の整形
+    cv::Rect TruncateRect(const cv::Rect& obj_rect, const cv::Size& img_size);
 
-	//! 画像からはみ出る矩形を中心を維持しながら整形
-	cv::Rect TruncateRectKeepCenter(const cv::Rect& obj_rect, const cv::Size& max_size);
+    //! 画像からはみ出る矩形を中心を維持しながら整形
+    cv::Rect TruncateRectKeepCenter(const cv::Rect& obj_rect, const cv::Size& max_size);
 
-	//! アノテーションファイルの読み込み
-	/*!
-	opencv_createsamles.exeと同形式のアノテーションファイル読み書き
-	ReadCsvFile()関数必須
-	\param[in] gt_file アノテーションファイル名
-	\param[out] imgpathlist 画像ファイルへのパス
-	\param[out] rectlist 各画像につけられたアノテーションのリスト
-	\return 読み込みの成否
-	*/
-	bool LoadAnnotationFile(const std::string& gt_file, std::vector<std::string>& imgpathlist, std::vector<std::vector<cv::Rect>>& rectlist);
+    //! アノテーションファイルの読み込み
+    /*!
+    opencv_createsamles.exeと同形式のアノテーションファイル読み書き
+    ReadCsvFile()関数必須
+    \param[in] gt_file アノテーションファイル名
+    \param[out] imgpathlist 画像ファイルへのパス
+    \param[out] rectlist 各画像につけられたアノテーションのリスト
+    \return 読み込みの成否
+    */
+    bool LoadAnnotationFile(const std::string& gt_file, std::vector<std::string>& imgpathlist, std::vector<std::vector<cv::Rect>>& rectlist);
 
-	//! アノテーションファイルへ追記
-	/*!
-	opencv_createsamles.exeと同形式のアノテーションファイル読み書き
-	\param[in] anno_file アノテーションファイル名
-	\param[in] img_file 画像ファイルへのパス
-	\param[int] obj_rects 各画像につけられたアノテーションのリスト
-	\return 保存の成否
-	*/
-	bool AddAnnotationLine(const std::string& anno_file, const std::string& img_file, const std::vector<cv::Rect>& obj_rects, const std::string& sep);
+    //! アノテーションファイルへ追記
+    /*!
+    opencv_createsamles.exeと同形式のアノテーションファイル読み書き
+    \param[in] anno_file アノテーションファイル名
+    \param[in] img_file 画像ファイルへのパス
+    \param[int] obj_rects 各画像につけられたアノテーションのリスト
+    \return 保存の成否
+    */
+    bool AddAnnotationLine(const std::string& anno_file, const std::string& img_file, const std::vector<cv::Rect>& obj_rects, const std::string& sep);
 
-	// ディレクトリから画像ファイル名一覧を取得
-	bool ReadImageFilesInDirectory(const std::string& img_dir, std::vector<std::string>& image_lists);
+    // ディレクトリから画像ファイル名一覧を取得
+    bool ReadImageFilesInDirectory(const std::string& img_dir, std::vector<std::string>& image_lists);
 
-	bool hasImageExtention(const std::string& filename);
+    bool hasImageExtention(const std::string& filename);
 
-	bool ReadCSVFile(const std::string& input_file, std::vector<std::vector<std::string>>& output_strings,
-		const std::vector<std::string>& separater_vec = std::vector<std::string>());;
+    bool ReadCSVFile(const std::string& input_file, std::vector<std::vector<std::string>>& output_strings,
+        const std::vector<std::string>& separater_vec = std::vector<std::string>());;
 
-	std::vector<std::string> TokenizeString(const std::string& input_string, const std::vector<std::string>& separater_vec);
+    std::vector<std::string> TokenizeString(const std::string& input_string, const std::vector<std::string>& separater_vec);
 }
 
 #endif
