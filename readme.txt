@@ -13,8 +13,8 @@ This image transformation pipeline steps are:
 - rotation around Z axis (yaw angle)
 - rotation around Y axis (pitch angle)
 - rotation around X axis (roll angle)
-- Gauss noise
-- Gauss blur
+- Gaussian noise
+- Gaussian blur
 
 The coordinate system is that X axis is horizontal, Y axis is vertical, and Z axis = optical axis of camera in an image.
 
@@ -95,7 +95,7 @@ Standard deviation of rotation angle (degree of pitch)
 Standard deviation of rotation angle (degree of roll)
 
 <blur_max_sigma>
-Maximum standard deviation of Gaussian blur.  Standard deviation of Gauss blur is generated randomly between zero and this value. (pixel)
+Maximum standard deviation of Gaussian blur.  Standard deviation of Gaussian blur is generated randomly between zero and this value. (pixel)
 
 <noise_max_sigma>
 Maximum standard deviation of Gaussian noise.  Standard deviation of Gaussian noise is generated randomly between zero and this value. (pixel value)
