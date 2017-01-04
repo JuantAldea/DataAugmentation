@@ -44,6 +44,8 @@ DataAugmentation <annotation name> <output folder> -a <output annnotation> -c <c
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <iostream>
+#include <fstream>
+#include <exception>
 #include "Util.h"
 #include "DataAugmentation.h"
 
@@ -121,7 +123,7 @@ bool LoadConf(const std::string& conf_file, int& num_generate,
         std::ifstream ifs(conf_file);
         if (!ifs.is_open()){
             std::string err_msg = "Fail to open config file \"" + conf_file + "\".";
-            throw std::exception(err_msg.c_str());
+            throw std::runtime_error(err_msg.c_str());
         }
 
         // ƒRƒ}ƒ“ƒhˆø”‚Ìæ“¾
@@ -141,7 +143,7 @@ bool LoadConf(const std::string& conf_file, int& num_generate,
         if (num_generate < 0 || yaw_sigma < 0 || pitch_sigma < 0 || roll_sigma < 0 ||
             blur_max_sigma < 0 || noise_max_sigma < 0 ||
             x_slide_sigma < 0 || y_slide_sigma < 0 || aspect_sigma < 0){
-            throw std::exception("All value must NOT be negative.");
+            throw std::runtime_error("All value must NOT be negative.");
         }
 
         return true;
@@ -194,3 +196,5 @@ int main(int argc, char * argv[])
 
     return 0;
 }
+
+

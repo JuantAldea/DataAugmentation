@@ -149,7 +149,7 @@ namespace util{
         }
 
         ofs << img_file << sep << obj_rects.size();
-        for (int i = 0; i < obj_rects.size(); i++){
+        for (uint i = 0; i < obj_rects.size(); i++){
             cv::Rect rect = obj_rects[i];
             ofs << sep << rect.x << sep << rect.y << sep << rect.width << sep << rect.height;
         }
@@ -248,3 +248,4 @@ namespace util{
         return ret_substr_vec;
     }
 }
+

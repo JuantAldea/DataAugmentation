@@ -65,7 +65,6 @@ namespace util{
     */
     bool AddAnnotationLine(const std::string& anno_file, const std::string& img_file, const std::vector<cv::Rect>& obj_rects, const std::string& sep);
 
-    // ディレクトリから画像ファイル名一覧を取得
     bool ReadImageFilesInDirectory(const std::string& img_dir, std::vector<std::string>& image_lists);
 
     bool hasImageExtention(const std::string& filename);
@@ -77,3 +76,4 @@ namespace util{
 }
 
 #endif
+

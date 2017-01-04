@@ -36,8 +36,6 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-
-
 //!ヨー／ピッチ／ロールと平行移動成分から、カメラ外部行列（回転＋並進）を求める
 /*!
 \param[in] yaw ヨー
@@ -216,13 +214,15 @@ cv::Rect ExpandRectForRotate(const cv::Rect& area)
     return exp_rect;
 }
 
-
-void RandomRotateImage(const cv::Mat& src, cv::Mat& dst, float yaw_sigma, float pitch_sigma, float roll_sigma, const cv::Rect& area, cv::RNG& rng,
-    float Z, int interpolation, int boarder_mode, const cv::Scalar& boarder_color)
+void RandomRotateImage(const cv::Mat& src, cv::Mat& dst, 
+    float yaw_sigma, float pitch_sigma, float roll_sigma, 
+    const cv::Rect& area, const cv::RNG& rng,
+    float Z, int interpolation, int boarder_mode,
+    const cv::Scalar& boarder_color)
 {
-    double yaw = rng.gaussian(yaw_sigma);
-    double pitch = rng.gaussian(pitch_sigma);
-    double roll = rng.gaussian(roll_sigma);
+    double yaw = const_cast<cv::RNG&>(rng).gaussian(yaw_sigma);
+    double pitch = const_cast<cv::RNG&>(rng).gaussian(pitch_sigma);
+    double roll = const_cast<cv::RNG&>(rng).gaussian(roll_sigma);
     //double yaw = rng.uniform(-yaw_range / 2, yaw_range / 2);
     //double pitch = rng.uniform(-pitch_range / 2, pitch_range / 2);
     //double roll = rng.uniform(-roll_range / 2, roll_range / 2);

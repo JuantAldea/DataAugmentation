@@ -39,7 +39,8 @@
 cv::Mat ImageTransform(const cv::Mat& img, const cv::Rect& area, 
     double yaw_range, double pitch_range, double roll_range,
     double blur_sigma, double noise_sigma, double x_slide, double y_slide,
-    double aspect_range, cv::RNG& rng = cv::RNG());
+    double aspect_range, 
+    const cv::RNG& rng = cv::RNG());
 
 
 void DataAugmentation(const std::vector<std::string>& img_files, const std::vector<std::vector<cv::Rect>>& areas,
@@ -47,5 +48,5 @@ void DataAugmentation(const std::vector<std::string>& img_files, const std::vect
     int num_generate, double yaw_range, double pitch_range, double roll_range,
     double blur_sigma, double noise_sigma, double x_slide, double y_slide, double aspect_range);
 
-
 #endif
+

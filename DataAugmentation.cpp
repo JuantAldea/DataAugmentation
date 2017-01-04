@@ -34,6 +34,7 @@
 #include "DataAugmentation.h"
 #include <opencv2/highgui/highgui.hpp>
 #include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
 #include <iostream>
 #include "RandomRotation.h"
 #include "Util.h"
@@ -109,7 +110,8 @@ cv::Mat ImageTransform(const cv::Mat& img, const cv::Rect& area,
 }
 
 
-void DataAugmentation(const std::vector<std::string>& img_files, const std::vector<std::vector<cv::Rect>>& areas,
+void DataAugmentation(const std::vector<std::string>& img_files,
+    const std::vector<std::vector<cv::Rect>>& areas,
     const std::string& output_folder, const std::string& output_file,
     int num_generate, double yaw_range, double pitch_range, double roll_range,
     double blur_sigma, double noise_sigma, double x_slide, double y_slide, double aspect_range)
@@ -117,9 +119,12 @@ void DataAugmentation(const std::vector<std::string>& img_files, const std::vect
     assert(areas.empty() || areas.size() == img_files.size());
 
     using namespace boost::filesystem;
-
+    if(!boost::filesystem::create_directory(output_folder)){
+        std::cerr << "Error while creating folder " << output_folder << std::endl;
+        exit(1);
+    }
     cv::RNG rng;
-    int num_img = img_files.size();
+    const int num_img = img_files.size();
     for (int i = 0; i < num_img; i++){
         std::cout << "Load " << img_files[i] << std::endl;
         cv::Mat img = cv::imread(img_files[i]);
@@ -135,7 +140,7 @@ void DataAugmentation(const std::vector<std::string>& img_files, const std::vect
             trans_areas = areas[i];
         }
 
-        for (int j = 0; j < trans_areas.size(); j++){
+        for (uint j = 0; j < trans_areas.size(); j++){
             std::stringstream filestr;
             filestr << "img" << i << "_" << j;
             
@@ -152,12 +157,12 @@ void DataAugmentation(const std::vector<std::string>& img_files, const std::vect
                     pos.push_back(cv::Rect(0,0,tran_img.cols, tran_img.rows));
                     util::AddAnnotationLine(output_file, dst_file.string(), pos, " ");
                     std::cout << "succeed";
-                }
-                else{
-                    std::cout << "fail";
+                } else {
+                    std::cout << "failed";
                 }
                 std::cout << std::endl;
             }
         }
     }
 }
+
