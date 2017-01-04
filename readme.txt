@@ -1,6 +1,6 @@
 DataAugmentation ver1.1
 
-2016/01/04 Juan Antonio Aldea Armenteros
+2017/01/04 Juan Antonio Aldea Armenteros
 2014/10/14 Takuya MINAGAWA (z.takmin@gmail.com)
 
 1. Introduction
