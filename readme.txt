@@ -1,4 +1,6 @@
-DataAugmentation ver1.0
+DataAugmentation ver1.1
+
+2016/01/4 Juan Antonio Aldea Armenteros
 2014/10/14 takuya minagawa
 
 1. Introduction
@@ -24,12 +26,6 @@ http://www.boost.org/
 
 OpenCV
 http://opencv.org/
-
-You can use pre-compiled version of windows. Extract DataAugmentation.zip and start "exe" file.
-If it does not work, you may need to install VC++2013 runtime.
-You can download it at:
-http://www.microsoft.com/en-us/download/details.aspx?id=40784
-
 
 3. How to use
 Here is the way to use this program:
