@@ -4,9 +4,10 @@ DataAugmentation ver1.1
 2014/10/14 Takuya MINAGAWA (z.takmin@gmail.com)
 
 1. Introduction
-This program transform input images with rotation, slide, blur, and noise to create training data of image recognition.
-This tool generate random parameters for these transformations.
-This image transform proceed in the following order:
+
+This program transform input images with rotation, slide, blur, and noise to create training data for image recognition.
+
+This image transformation pipeline steps are:
 - change aspect ratio
 - slide
 - rotation around Z axis (yaw angle)
@@ -18,8 +19,9 @@ This image transform proceed in the following order:
 The coordinate system is that X axis is horizontal, Y axis is vertical, and Z axis = optical axis of camera in an image.
 
 
-2. Install
-You need boost and OpenCV for build.
+2. Building
+
+This software depends on libraries boost and OpenCV for building.
 
 boost
 http://www.boost.org/
@@ -27,8 +29,14 @@ http://www.boost.org/
 OpenCV
 http://opencv.org/
 
-3. How to use
-Here is the way to use this program:
+
+3. Compiling
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+
+4. How to use
 
 DataAugmentation <input> <output directory> [option]
 
@@ -60,7 +68,7 @@ You can indicate the following options:
 -a    output annotation file (default: annotation.txt)
 
 
-4. Configuration file
+5. Configuration file
 You can indicate parameters for image transformation in a configuration file.
 Here is the parameters:
 
@@ -92,8 +100,8 @@ Maximum standard deviation of Gaussian blur.  Standard deviation of Gauss blur i
 <noise_max_sigma>
 Maximum standard deviation of Gaussian noise.  Standard deviation of Gaussian noise is generated randomly between zero and this value. (pixel value)
 
+6. Licensing
 
-5. License
 This software is released under "MIT License".
 http://opensource.org/licenses/MIT
 
