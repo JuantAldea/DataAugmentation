@@ -1,7 +1,7 @@
 DataAugmentation ver1.1
 
-2016/01/4 Juan Antonio Aldea Armenteros
-2014/10/14 takuya minagawa
+2016/01/04 Juan Antonio Aldea Armenteros
+2014/10/14 Takuya MINAGAWA (z.takmin@gmail.com)
 
 1. Introduction
 This program transform input images with rotation, slide, blur, and noise to create training data of image recognition.
@@ -97,7 +97,4 @@ Maximum standard deviation of Gaussian noise.  Standard deviation of Gaussian no
 This software is released under "MIT License".
 http://opensource.org/licenses/MIT
 
-Notice: The libraries used in this software (OpenCV and Boost) are followed under the license of each.
-
-
-Takuya MINAGAWA (z.takmin@gmail.com)
+Notice: The libraries used in this software (OpenCV and Boost) are covered by the licenses of each.
