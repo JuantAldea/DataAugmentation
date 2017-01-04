@@ -1,4 +1,3 @@
-/*M///////////////////////////////////////////////////////////////////////////////////////
 //
 //  IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.
 //
@@ -9,6 +8,7 @@
 //
 //                           License Agreement
 //
+// Copyright (C) 2017 Juan Antonio Aldea Armenteros.
 // Copyright (C) 2014 Takuya MINAGAWA.
 // Third party copyrights are property of their respective owners.
 //
@@ -29,7 +29,6 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//M*/
 
 #ifndef __RANDOM_ROTATION__
 #define __RANDOM_ROTATION__
